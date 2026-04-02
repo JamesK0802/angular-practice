@@ -1,0 +1,116 @@
+    <div class="row">
+        <div class="col-3">
+            <input type="checkbox" [(ngModel)]="isOfferCodeAvailable"> Do you Have Offer Code?
+        </div>
+        @if(isOfferCodeAvailable == true) {
+            <div class="col-3">
+                <!-- --{{isOfferCodeAvailable}} -->
+                <input type="text", class="form-control", placeholder="Enter Offer Code">
+            </div>
+        }
+    </div>  
+    <hr>
+    <div class="row">
+        <div class="col-3">
+            @if(isSuccessDivVisible() == true){
+            <div class="bg-success p-3">
+                Success Div
+            </div>}
+            @else{
+            <div class="bg-danger p-3">
+                Error Div
+            </div>}
+        </div>
+
+        <div class="col-3">
+            <button class="btn-success" (click) = toggleVisability()>
+                Toggle
+            </button>
+        </div>
+    </div>
+
+    <br>
+    <div class="row">
+        <div class="col-3">
+            <input type="text", class="form-control", placeholder="%" [(ngModel)]="studentTotalMark">
+        </div>
+        <div class="col-3">
+            @if (studentTotalMark >=70) {
+            <strong class="text-success">
+                Student Has A Grade
+            </strong>
+            }
+            @else if (studentTotalMark<70 && studentTotalMark >=50) {
+            <span class="text-warning">
+                Student Has B Grade
+            </span>
+            }
+
+            @else if (studentTotalMark<50 && studentTotalMark >=35) {
+            <span class="text-primary">
+                Student Has C Grade
+            </span>       
+            }
+            @else {
+                @if (studentTotalMark==0) {
+                    <span> Enter Mark</span>
+                }
+                @else {
+                <span class="text-danger">
+                    Student Fails
+                </span>
+                }
+            }
+
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-3">
+            <ul>
+                
+                @for (item of offerList; track $index) {
+                    <li>
+                        {{item}}
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="col-8">
+            @for (item of productCatList; track $index) {
+                <button class="btn btn-primary mx-2">
+                    {{item}}
+                </button>
+            }
+        </div>
+        <div class="col-6">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>sr no</th>
+                        <th>name</th>
+                        <th>city</th>
+                        <th>status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (i of employeeList; track $index) {
+                    <tr>
+                        <td>{{$index+1}}</td>
+                        <td>{{i.name}}</td>
+                        <td>{{i.city}}</td>
+                        <td>
+                            @if (i.isActive == true) {
+                                <strong class="text-success">Active</strong>
+                            }
+                            @else {
+                                <strong class="text-danger">De-Active</strong>
+                            }
+                        </td>
+                    </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>

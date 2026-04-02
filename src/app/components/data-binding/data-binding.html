@@ -1,0 +1,63 @@
+<p>data-binding works!</p>
+<table>
+    <tbody>
+        <tr>
+            <td>
+                <span>
+                    {{courseName}}
+                </span>
+            </td>
+            <td>
+                <strong>
+                    {{courseName}}
+                </strong>
+            </td>
+            <td>
+                <strong>
+                    {{cityName}}
+                </strong>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text", [value] = cityName>
+            </td>
+            <td>
+                <p [class] = "className">
+                    This is Paragraph
+                </p>
+            </td>
+            <td>
+                <input [type] ="inputType", [class] = "className">
+            </td>
+            <td>
+                <button (click)="showWelcomeMessage()">
+                    show Message
+                </button>
+            </td>
+            <td>
+                <select (change) = "onStateChanged()">
+                    <option>100</option>
+                    <option>200</option>
+                    <option>300</option>
+                    <option>400</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" [(ngModel)]=cityName>
+            </td>
+            <td>
+                <button (click) = "changeCourseName('Java')">
+                    Change Java
+                </button>
+            </td>
+            <td>
+                <button (click) = "changeCourseName('Dot Net')">
+                    Change Dot Net
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
