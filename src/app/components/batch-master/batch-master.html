@@ -17,14 +17,14 @@
                 </tr>
               </thead>
               <tbody>
-                @for (item of batchList; track $index) {
+                @for (item of batchList(); track $index) {
                   <tr>
                     <th scope="row">{{$index+1}}</th>
                     <td>{{ item.batchName }}</td>
                     <td>{{ item.createdDate}}</td>
                     <td class="text-end">
-                      <button type="button" class="btn btn-sm btn-outline-primary me-2">Edit</button>
-                      <button type="button" class="btn btn-sm btn-outline-danger">Delete</button>
+                      <button type="button" class="btn btn-sm btn-outline-primary me-2" (click)="onEditBatch(item)">Edit</button>
+                      <button type="button" class="btn btn-sm btn-outline-danger" (click)="onDeleteBatch(item)">Delete</button>
                     </td>
                   </tr>
                 }
@@ -48,14 +48,19 @@
               <input type="text" name="batchName" [(ngModel)]="newBatchObj.batchName" class="form-control" placeholder="Enter batch name" />
             </div>
 
-            <div class="col-12">
+            <!-- <div class="col-12">
               <label class="form-label">Created Date</label>
               <input type="date" name="createdDate" [(ngModel)]="newBatchObj.createdDate" class="form-control" />
-            </div>
+            </div> -->
 
             <div class="col-12 d-flex gap-2">
-              <button type="button" class="btn btn-primary flex-fill" (click)="onSaveBatch()">Save</button>
-              <button type="reset" class="btn btn-outline-secondary flex-fill">Reset</button>
+                @if (newBatchObj.batchId==0) {
+                    <button type="button" class="btn btn-primary flex-fill" (click)="onSaveBatch()">Save</button>
+                }
+                @else {
+                    <button type="button" class="btn btn-primary flex-fill" (click)="onUpdateBatch()">Update</button>
+                }
+              <button type="button" class="btn btn-outline-secondary flex-fill" (click)="resetForm()">Reset</button>
             </div>
           </form>
         </div>

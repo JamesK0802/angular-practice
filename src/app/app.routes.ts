@@ -9,6 +9,7 @@ import { CardExample } from './components/card-example/card-example';
 import { UserMaster } from './components/user-master/user-master';
 import { ReactiveUser } from './components/reactive-user/reactive-user';
 import { BatchMaster } from './components/batch-master/batch-master';
+import { ProjectCompetation } from './components/project-competation/project-competation';
 
 export const routes: Routes = [
     {
@@ -46,6 +47,10 @@ export const routes: Routes = [
     {
         path: "batchMaster",
         component: BatchMaster
+    },
+    {
+        path: "competation",
+        component: ProjectCompetation
     },
     {
         path: "",
