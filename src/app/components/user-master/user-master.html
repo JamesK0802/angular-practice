@@ -1,0 +1,63 @@
+<div class="container mt-5" style="max-width: 520px;">
+    <div class="card shadow-sm">
+        <div class="card-body p-4">
+            <h3 class="card-title mb-4 text-center">Create Account</h3>
+
+            <form #formData="ngForm">
+                <div class="mb-3">
+                    <label for="id" class="form-label">ID</label>
+                    <input id="id" type="number" [(ngModel)]="userObj.id" name="id" class="form-control"
+                        placeholder="User ID" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input id="name" type="text" #name="ngModel" required minlength="5" [(ngModel)]="userObj.name"
+                        name="name" class="form-control" placeholder="Enter your name" />
+                    @if (name.touched && name.dirty) {
+                    <div class="text-danger">
+                        @if(name.errors?.['required']) {
+                        <span>This is Required</span>
+                        }
+                        @else if(name.errors?.['minlength']) {
+                        <span>Minimum length is 5</span>
+                        }
+                    </div>
+                    }
+
+                </div>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input id="username" type="text" [(ngModel)]="userObj.username" name="username" class="form-control"
+                        placeholder="Choose a username" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input id="email" type="email" [(ngModel)]="userObj.email" name="email" class="form-control"
+                        placeholder="Enter your email" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input id="password" type="password" [(ngModel)]="userObj.password" name="password"
+                        class="form-control" placeholder="Create a password" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="city" class="form-label">City</label>
+                    <input id="city" type="text" [(ngModel)]="userObj.city" name="city" class="form-control"
+                        placeholder="City" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="state" class="form-label">State</label>
+                    <input id="state" type="text" [(ngModel)]="userObj.state" name="state" class="form-control"
+                        placeholder="State" />
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100" [disabled]="formData.invalid">Create Account</button>
+            </form>
+        </div>
+    </div>
+</div>

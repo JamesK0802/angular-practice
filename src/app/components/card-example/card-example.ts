@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-card-example',
-  imports: [NgClass, FormsModule, NgStyle],
+  imports: [NgClass, FormsModule],
   templateUrl: './card-example.html',
   styleUrl: './card-example.css',
 })

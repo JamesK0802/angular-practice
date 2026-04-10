@@ -6,6 +6,9 @@ import { NotFound } from './components/not-found/not-found';
 import { ControlFlow } from './components/control-flow/control-flow';
 import { DynamicCssClass } from './components/dynamic-css-class/dynamic-css-class';
 import { CardExample } from './components/card-example/card-example';
+import { UserMaster } from './components/user-master/user-master';
+import { ReactiveUser } from './components/reactive-user/reactive-user';
+import { BatchMaster } from './components/batch-master/batch-master';
 
 export const routes: Routes = [
     {
@@ -33,12 +36,24 @@ export const routes: Routes = [
         component: CardExample
     },
     {
-        path:"",
+        path: "users",
+        component: UserMaster
+    },
+    {
+        path: "reactive-form",
+        component: ReactiveUser
+    },
+    {
+        path: "batchMaster",
+        component: BatchMaster
+    },
+    {
+        path: "",
         redirectTo: "databinding",
         pathMatch: "full"
     },
     {
-        path:"**",
-        component:NotFound
+        path: "**",
+        component: NotFound
     }
 ];
